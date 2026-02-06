@@ -3,211 +3,342 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>G-ASR | Jual Beli Emas Profesional</title>
+    <title>G-ASR | Pusat Jual Beli Emas Terpercaya</title>
     <style>
         :root {
-            --primary-gold: #C5A028;
-            --secondary-gold: #E5C560;
-            --dark-blue: #0A192F;
-            --text-dark: #333333;
-            --text-light: #666666;
-            --bg-light: #F9FAFB;
-            --white: #FFFFFF;
-            --border-radius: 8px;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --primary: #C5A028;       /* Emas Mewah */
+            --primary-dark: #b08d1e;
+            --dark: #0f172a;          /* Navy Gelap Professional */
+            --light: #f8fafc;         /* White Blueish */
+            --text-main: #334155;     /* Slate Grey */
+            --text-muted: #64748b;
+            --success: #166534;
+            --radius: 12px;
+            --shadow: 0 4px 20px rgba(0,0,0,0.06);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
+            background-color: #f1f5f9;
+            color: var(--text-main);
             line-height: 1.6;
-            font-size: 16px;
         }
 
         .container {
-            max-width: 600px;
+            max-width: 550px;
             margin: 0 auto;
-            background: var(--white);
+            background: #FFFFFF;
             min-height: 100vh;
-            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            box-shadow: var(--shadow);
             display: flex;
             flex-direction: column;
         }
 
+        /* HEADER & LOGO */
+        header {
+            background: var(--dark);
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--primary);
+            position: relative;
+        }
+
+        .logo-img {
+            max-width: 180px; /* Ukuran Logo */
+            height: auto;
+            display: block;
+            margin: 0 auto 10px auto;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .tagline {
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            margin-top: 5px;
+        }
+
+        /* UTILS */
         .section {
             padding: 24px;
-            border-bottom: 1px solid #EEEEEE;
+            border-bottom: 1px solid #e2e8f0;
         }
 
         h2 {
             font-size: 1.25rem;
-            color: var(--dark-blue);
+            color: var(--dark);
             margin-bottom: 16px;
             font-weight: 700;
-            border-left: 4px solid var(--primary-gold);
-            padding-left: 12px;
+            display: flex;
+            align-items: center;
+        }
+        
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 5px;
+            height: 24px;
+            background: var(--primary);
+            margin-right: 12px;
+            border-radius: 4px;
         }
 
-        /* HEADER */
-        header {
-            background-color: var(--dark-blue);
-            color: var(--white);
-            padding: 30px 24px;
+        p { margin-bottom: 12px; font-size: 0.95rem; color: var(--text-muted); }
+
+        /* PRICE CARD */
+        .price-card {
+            background: linear-gradient(135deg, #fffbeb 0%, #ffffff 100%);
+            border: 1px solid #fcd34d;
+            border-radius: var(--radius);
+            padding: 24px;
             text-align: center;
+            box-shadow: 0 2px 10px rgba(197, 160, 40, 0.1);
         }
 
-        .logo {
-            font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            color: var(--primary-gold);
+        .live-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            font-weight: 600;
             margin-bottom: 8px;
         }
 
-        .tagline {
-            font-size: 0.9rem;
-            color: #E0E0E0;
-            font-weight: 300;
-        }
-
-        /* LIVE PRICE */
-        .price-card {
-            background: linear-gradient(135deg, #FFF9E6 0%, #FFFFFF 100%);
-            border: 1px solid var(--secondary-gold);
-            border-radius: var(--border-radius);
-            padding: 20px;
-            text-align: center;
-        }
-
         .live-price {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 800;
-            color: var(--dark-blue);
+            color: var(--dark);
             font-family: 'Courier New', monospace;
-            margin: 10px 0;
+            margin: 5px 0 10px 0;
+            letter-spacing: -1px;
         }
 
-        .update-time { font-size: 0.75rem; color: #888; }
+        .update-badge {
+            display: inline-block;
+            background: #e2e8f0;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
 
-        /* CALCULATOR STYLES */
-        .form-group { margin-bottom: 16px; }
-        
+        /* CALCULATOR */
+        .calc-wrapper {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: var(--radius);
+            border: 1px solid #e2e8f0;
+        }
+
         label {
             display: block;
             font-size: 0.9rem;
             font-weight: 600;
             margin-bottom: 8px;
-            color: var(--dark-blue);
+            color: var(--dark);
         }
 
-        input[type="number"], select {
+        input, select {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #DDD;
-            border-radius: var(--border-radius);
+            padding: 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
             font-size: 1rem;
-            background: #FAFAFA;
-        }
-
-        /* TOGGLE SWITCH FOR CODE */
-        .toggle-container {
-            display: flex;
-            background: #F0F0F0;
-            padding: 4px;
-            border-radius: var(--border-radius);
             margin-bottom: 16px;
+            background: white;
+            transition: border 0.3s;
         }
+        input:focus, select:focus { border-color: var(--primary); outline: none; }
 
-        .toggle-option {
+        /* MODE SWITCH */
+        .mode-switch {
+            display: flex;
+            background: #e2e8f0;
+            padding: 4px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .mode-btn {
             flex: 1;
-            text-align: center;
             padding: 10px;
+            text-align: center;
+            border-radius: 8px;
             cursor: pointer;
-            border-radius: 6px;
             font-size: 0.9rem;
             font-weight: 600;
+            color: var(--text-muted);
             transition: all 0.3s;
         }
 
-        .toggle-option.active {
-            background: var(--dark-blue);
-            color: var(--white);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        .mode-btn.active {
+            background: white;
+            color: var(--dark);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        /* RESULT BOX */
-        .result-box {
-            margin-top: 20px;
-            background: #E8F5E9;
-            border: 1px solid #C8E6C9;
-            padding: 15px;
-            border-radius: var(--border-radius);
-            display: none;
-        }
-
-        .result-value {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: #2E7D32;
-            margin: 5px 0;
-        }
-
-        /* BUTTONS */
         .btn-calc {
             width: 100%;
-            padding: 14px;
-            background-color: var(--primary-gold);
-            color: var(--dark-blue);
+            padding: 16px;
+            background: var(--dark);
+            color: white;
             border: none;
-            border-radius: var(--border-radius);
+            border-radius: 8px;
             font-weight: 700;
             font-size: 1rem;
             cursor: pointer;
             transition: background 0.3s;
         }
-        .btn-calc:hover { background-color: #b39020; }
+        .btn-calc:hover { background: #1e293b; }
 
+        .result-box {
+            margin-top: 20px;
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            padding: 20px;
+            border-radius: var(--radius);
+            display: none;
+            text-align: center;
+        }
+
+        .result-val {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--success);
+            display: block;
+            margin: 5px 0;
+        }
+
+        /* BUTTONS */
         .btn-copy {
-            background: none; border: 1px solid var(--primary-gold); color: var(--primary-gold);
-            padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; cursor: pointer; margin-left: 8px;
+            border: 1px solid var(--primary);
+            background: transparent;
+            color: var(--primary-dark);
+            font-size: 0.7rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-left: 8px;
+            font-weight: 600;
+            vertical-align: middle;
         }
-        .btn-copy:hover { background: var(--primary-gold); color: var(--white); }
+        .btn-copy:hover { background: var(--primary); color: white; }
 
-        .btn-whatsapp {
-            display: inline-flex; align-items: center; justify-content: center; width: 100%;
-            background-color: #25D366; color: var(--white); text-decoration: none; padding: 16px;
-            border-radius: 50px; font-weight: 700; font-size: 1.1rem; margin-top: 10px;
+        .btn-wa {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            padding: 18px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            box-shadow: 0 10px 20px rgba(37,211,102,0.2);
+            transition: transform 0.2s;
         }
+        .btn-wa:active { transform: scale(0.98); }
 
-        /* LISTS & FAQ */
-        ul.gold-list { list-style: none; padding: 0; }
-        ul.gold-list li { padding: 8px 0; border-bottom: 1px dashed #EEE; display: flex; align-items: center; }
-        ul.gold-list li::before { content: "•"; color: var(--primary-gold); font-weight: bold; margin-right: 10px; font-size: 1.2rem; }
-
-        details { margin-bottom: 10px; border: 1px solid #EEE; border-radius: var(--border-radius); overflow: hidden; }
-        summary { padding: 15px; background: #FAFAFA; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; }
-        .faq-content { padding: 15px; background: var(--white); border-top: 1px solid #EEE; font-size: 0.9rem; color: var(--text-light); }
-
-        /* TOAST */
-        .toast {
-            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
-            background: rgba(0,0,0,0.8); color: white; padding: 10px 20px; border-radius: 20px;
-            font-size: 0.8rem; opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 1000;
+        /* LIST & INFO */
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
         }
-        .toast.show { opacity: 1; }
+        .benefit-item {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+        .benefit-item h3 { font-size: 1rem; color: var(--dark); margin-bottom: 5px; }
+        .benefit-item p { margin: 0; font-size: 0.85rem; }
+
+        ul.pro-list {
+            list-style: none;
+            padding: 0;
+        }
+        ul.pro-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        ul.pro-list li span:first-child { font-weight: 500; color: var(--dark); }
+
+        /* FAQ */
+        details {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            background: white;
+        }
+        summary {
+            padding: 16px;
+            background: #f8fafc;
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            color: var(--dark);
+        }
+        summary::after { content: '+'; color: var(--primary); font-weight: 800; }
+        details[open] summary::after { content: '-'; }
+        
+        .faq-body {
+            padding: 16px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            background: white;
+            border-top: 1px solid #e2e8f0;
+            line-height: 1.6;
+        }
 
         /* FOOTER */
-        footer { background: var(--dark-blue); color: #888; padding: 30px; text-align: center; font-size: 0.8rem; }
+        footer {
+            background: var(--dark);
+            color: #94a3b8;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+        .footer-logo-text { color: var(--primary); font-weight: 800; font-size: 1.1rem; margin-bottom: 10px; display: block; }
+
+        /* TOAST NOTIFICATION */
+        #toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: var(--dark);
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 14px;
+            position: fixed;
+            z-index: 999;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        #toast.show { visibility: visible; animation: fadein 0.5s, fadeout 0.5s 2.5s; }
+        @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
+        @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
 
         @media (min-width: 600px) {
-            .container { margin: 20px auto; border-radius: 12px; overflow: hidden; }
+            .container { margin: 40px auto; border-radius: 16px; overflow: hidden; }
         }
     </style>
 </head>
@@ -215,288 +346,292 @@
 
 <div class="container">
     <header>
-        <div class="logo">G-ASR</div>
-        <div class="tagline">Jual Emas Lebih Aman, Transparan, dan Profesional</div>
+        <!-- LOGO IMAGE: Pastikan file 1.png ada di folder yang sama -->
+        <img src="1.png" alt="Logo G-ASR" class="logo-img">
+        <div class="tagline">Mitra Likuiditas Emas Aman, Transparan & Profesional</div>
     </header>
 
-    <!-- LIVE PRICE -->
+    <!-- LIVE PRICE SECTION -->
     <div class="section">
         <div class="price-card">
-            <div style="font-size:0.8rem; text-transform:uppercase; color:#666;">Harga Emas Murni 24K (Pasar Dunia)</div>
+            <div class="live-label">Harga Referensi Pasar Global (24K)</div>
             <div class="live-price">
                 <span id="price-display">Rp -</span>
-                <button class="btn-copy" onclick="copyText('price-display')">Salin</button>
+                <button class="btn-copy" onclick="copyText('price-display')" title="Salin Harga">SALIN</button>
             </div>
-            <div class="update-time" id="last-update">Menunggu pembaruan...</div>
-        </div>
-    </div>
-
-    <!-- CALCULATOR -->
-    <div class="section">
-        <h2>Kalkulator Estimasi Harga</h2>
-        
-        <div class="form-group">
-            <label>Berat Emas (Gram)</label>
-            <input type="number" id="calc-weight" placeholder="Contoh: 5" step="0.01">
-        </div>
-
-        <!-- Mode Toggle -->
-        <label>Jenis Barang</label>
-        <div class="toggle-container">
-            <div class="toggle-option active" id="opt-tanpa-kode" onclick="switchMode('tanpa-kode')">Tanpa Kode / Umum</div>
-            <div class="toggle-option" id="opt-ada-kode" onclick="switchMode('ada-kode')">Ada Kode / Cap</div>
-        </div>
-
-        <!-- Input: Tanpa Kode (Kategori Umum) -->
-        <div class="form-group" id="input-category-box">
-            <label>Kategori (Estimasi Fisik)</label>
-            <select id="calc-category">
-                <option value="16">Emas Tua</option>
-                <option value="12">Emas Sedang</option>
-                <option value="8">Emas Muda </option>
-                <option value="6">Emas Campuran / Rusak</option>
-            </select>
-        </div>
-
-        <!-- Input: Ada Kode (Dropdown Spesifik) -->
-        <div class="form-group" id="input-code-box" style="display: none;">
-            <label>Kode / Cap pada Emas</label>
-            <select id="calc-code-val">
-                <option value="24">999 / 24K (Logam Mulia)</option>
-                <option value="23">958 / 23K</option>
-                <option value="22">916 / 22K (Kendari/Bali/Dubai)</option>
-                <option value="21">875 / 21K</option>
-                <option value="20">833 / 20K</option>
-                <option value="18">750 / 18K (Emas Putih/Kuning Tua)</option>
-                <option value="17">700 / 17K (Emas 70)</option>
-                <option value="16">700 / 16K (Emas Tua Standar)</option>
-                <option value="14">585 / 14K</option>
-                <option value="10">420 / 10K</option>
-                <option value="9">375 / 9K (Emas Muda)</option>
-                <option value="8">333 / 8K</option>
-            </select>
-        </div>
-
-        <button class="btn-calc" onclick="calculateEstimate()">Hitung Estimasi Penawaran</button>
-
-        <div class="result-box" id="result-box">
-            <p style="margin:0; font-weight:600; color:#1b5e20;">Estimasi Harga Beli G-ASR:</p>
-            <div class="result-value">
-                <span id="result-price">Rp 0</span>
-                <button class="btn-copy" onclick="copyText('result-price')">Salin</button>
-            </div>
-            <p style="font-size:0.8rem; margin-top:5px; color:#555;">
-                *Harga otomatis disesuaikan (Potongan standar & Biaya lebur). Harga final ditentukan setelah cek fisik di lokasi.
+            <div class="update-badge" id="last-update">Menghubungkan ke server...</div>
+            <p style="font-size: 0.8rem; margin-top: 15px; color: #888;">
+                *Data harga diperbarui secara otomatis 3x sehari (06:00, 12:00, 17:00) mengacu pada spot market internasional.
             </p>
         </div>
     </div>
 
-    <!-- DAFTAR KODE -->
+    <!-- CALCULATOR SECTION -->
     <div class="section">
-        <div style="display:flex; justify-content:space-between; align-items:center;">
-            <h2>Daftar Emas Yang Diterima</h2>
-            <button class="btn-copy" onclick="copyList('accepted-list')">Salin</button>
+        <h2>Simulasi Penawaran Harga</h2>
+        <p>Gunakan kalkulator ini untuk mendapatkan estimasi nilai jual bersih emas Anda sebelum berkunjung.</p>
+        
+        <div class="calc-wrapper">
+            <label>Berat Bersih (Gram)</label>
+            <input type="number" id="inp-berat" placeholder="Contoh: 5.5" step="0.01">
+
+            <label>Kategori Barang</label>
+            <div class="mode-switch">
+                <div class="mode-btn active" id="btn-umum" onclick="setMode('umum')">Tanpa Kode / Umum</div>
+                <div class="mode-btn" id="btn-kode" onclick="setMode('kode')">Ada Kode / Cap</div>
+            </div>
+
+            <!-- Opsi Umum -->
+            <div id="box-umum">
+                <select id="sel-umum">
+                    <option value="tua">Emas Tua (High Grade)</option>
+                    <option value="sedang">Emas Sedang (Medium Grade)</option>
+                    <option value="muda">Emas Muda (Low Grade)</option>
+                    <option value="campuran">Emas Rusak / Campuran</option>
+                </select>
+            </div>
+
+            <!-- Opsi Kode -->
+            <div id="box-kode" style="display: none;">
+                <select id="sel-kode">
+                    <option value="24">999 / LM (24K)</option>
+                    <option value="23">958 (23K)</option>
+                    <option value="22">916 (22K)</option>
+                    <option value="21">875 (21K)</option>
+                    <option value="18">750 (18K)</option>
+                    <option value="17">700 (17K)</option>
+                    <option value="16">700 (Tua Standar)</option>
+                    <option value="14">585 (14K)</option>
+                    <option value="9">375 (9K)</option>
+                </select>
+            </div>
+
+            <button class="btn-calc" onclick="hitung()">CEK ESTIMASI PENAWARAN</button>
+
+            <div class="result-box" id="box-hasil">
+                <div style="font-size:0.9rem; color:var(--dark); font-weight:600; text-transform:uppercase;">Estimasi Terima Bersih:</div>
+                <span class="result-val" id="txt-hasil">Rp 0</span>
+                <button class="btn-copy" onclick="copyText('txt-hasil')" style="border-color:var(--success); color:var(--success);">SALIN NOMINAL</button>
+                <div style="font-size:0.8rem; margin-top:10px; color:#555; line-height:1.4;">
+                    *Nominal di atas adalah simulasi penawaran bersih. Penilaian final (Final Valuation) ditentukan setelah pengecekan fisik (kadar & berat riil) oleh tim ahli kami.
+                </div>
+            </div>
         </div>
-        <ul class="gold-list" id="accepted-list">
-            <li><strong>Kode 999 (24K):</strong> Logam Mulia / Batangan</li>
-            <li><strong>Kode 916 (22K):</strong> Emas Kendari, Bali, Dubai</li>
-            <li><strong>Kode 750 (18K):</strong> Perhiasan modern, Emas Putih</li>
-            <li><strong>Kode 700 (16K-17K):</strong> Emas Tua umum</li>
-            <li><strong>Kode 375/420 (8K-9K):</strong> Emas Muda</li>
-            <li>Emas tanpa surat / Emas patah / Emas warisan</li>
+    </div>
+
+    <!-- ACCEPTED ITEMS -->
+    <div class="section">
+        <div style="display: flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+            <h2>Portofolio Aset Yang Diterima</h2>
+            <button class="btn-copy" onclick="copyList('list-emas')">SALIN LIST</button>
+        </div>
+        <ul class="pro-list" id="list-emas">
+            <li><span>Segala Jenis Perhiasan</span> <span>(Cincin, Kalung, Gelang, Anting)</span></li>
+            <li><span>Logam Mulia</span> <span>(Antam, UBS, Lotus, Galeri 24)</span></li>
+            <li><span>Emas Warisan / Lama</span> <span>(Kondisi apapun)</span></li>
+            <li><span>Emas Tanpa Surat</span> <span>(Dicek di tempat)</span></li>
+            <li><span>Emas Rusak</span> <span>(Patah, Putus, Hilang Sebelah)</span></li>
+            <li><span>Rongsok Emas</span> <span>(Limbah Toko Mas)</span></li>
         </ul>
-        <p style="margin-top:15px; font-weight:600; color:var(--dark-blue);">"Apapun kodenya, selama emas asli, kami terima."</p>
+        <p style="margin-top:15px; font-weight:600; font-size:0.95rem; color:var(--primary-dark); text-align:center;">
+            "Kami menghargai kandungan emas murni di dalamnya, bukan sekadar bentuk fisiknya."
+        </p>
     </div>
 
-    <!-- PROSES -->
+    <!-- VALUE PROPOSITION -->
     <div class="section">
-        <h2>Proses Pengecekan</h2>
-        <ol style="padding-left:20px; color:var(--text-light); font-size:0.9rem;">
-            <li style="margin-bottom:8px;"><strong>Cek Fisik:</strong> Melihat cap/kode pada barang.</li>
-            <li style="margin-bottom:8px;"><strong>Uji Gosok/Air:</strong> Memastikan kadar emas sesuai kode.</li>
-            <li style="margin-bottom:8px;"><strong>Penimbangan:</strong> Menggunakan timbangan digital presisi.</li>
-            <li style="margin-bottom:8px;"><strong>Pembayaran:</strong> Langsung cair (Tunai/Transfer) di tempat.</li>
-        </ol>
+        <h2>Standar Layanan Profesional</h2>
+        <div class="benefit-grid">
+            <div class="benefit-item">
+                <h3>🔍 Transparansi Pengecekan</h3>
+                <p>Seluruh proses uji kadar (gosok/air keras/timbang) dilakukan terbuka di hadapan Anda. Tidak ada manipulasi timbangan.</p>
+            </div>
+            <div class="benefit-item">
+                <h3>💸 Likuiditas Instan</h3>
+                <p>Pembayaran dilakukan seketika (Real-time settlement) setelah harga disepakati. Tersedia opsi Tunai atau Transfer Bank.</p>
+            </div>
+            <div class="benefit-item">
+                <h3>🤝 Valuasi Objektif</h3>
+                <p>Penilaian harga didasarkan pada acuan pasar yang jelas dan kondisi riil barang, memberikan rasa adil bagi kedua belah pihak.</p>
+            </div>
+        </div>
     </div>
 
-    <!-- ABOUT & FAQ -->
-    <div class="section" style="background-color:#F5F7FA;">
-        <h2>Mengapa G-ASR?</h2>
-        <p>Kami menggunakan acuan harga yang jelas. Jika emas Anda memiliki kode (misal 750 atau 916), kami menghargainya sesuai kadar tersebut, bukan dipukul rata. Transparansi adalah prioritas kami.</p>
-    </div>
-
+    <!-- FAQ -->
     <div class="section">
-        <h2>FAQ</h2>
+        <h2>Pertanyaan Umum (FAQ)</h2>
+        
         <details>
-            <summary>Apa beda Emas Tua & Muda?</summary>
-            <div class="faq-content">Di G-ASR, Emas Tua kami kategorikan setara 16K (70%) ke atas. Emas Muda biasanya berkadar 375 atau 420 (di bawah 42%).</div>
+            <summary>Apakah surat pembelian itu wajib?</summary>
+            <div class="faq-body">Tidak wajib. Surat hanya membantu identifikasi awal. Jika surat hilang, kami tetap dapat membeli emas Anda setelah melalui prosedur pengecekan kadar standar kami.</div>
         </details>
+        
         <details>
-            <summary>Emas saya tidak ada kodenya?</summary>
-            <div class="faq-content">Tidak masalah. Kami akan cek manual menggunakan air keras atau batu gosok untuk menentukan masuk kategori mana (Tua/Sedang/Muda).</div>
+            <summary>Bagaimana jika emas saya rusak parah?</summary>
+            <div class="faq-body">Jangan dibuang. Emas patah, gepeng, atau putus tetap memiliki nilai investasi. Kami membelinya berdasarkan berat gram dan kadar kemurniannya.</div>
         </details>
+        
         <details>
-            <summary>Apakah terima emas rusak?</summary>
-            <div class="faq-content">Ya, emas patah, gepeng, atau putus tetap kami terima sesuai berat dan kadarnya.</div>
+            <summary>Apakah harga di web sama dengan di lokasi?</summary>
+            <div class="faq-body">Harga web adalah acuan dasar. Harga di lokasi bisa sama atau sedikit berbeda tergantung hasil uji fisik (misal: ternyata kadar emas lebih tinggi atau lebih rendah dari perkiraan awal).</div>
+        </details>
+        
+        <details>
+            <summary>Metode pengecekan apa yang digunakan?</summary>
+            <div class="faq-body">Kami menggunakan metode standar industri emas: Pengecekan kode cap, penimbangan dengan timbangan digital presisi, dan uji gosok batu/air uji untuk memastikan kadar.</div>
+        </details>
+
+        <details>
+            <summary>Apakah melayani jemput barang (COD)?</summary>
+            <div class="faq-body">Kami menyediakan layanan penjemputan untuk area tertentu dengan syarat dan ketentuan volume transaksi. Silakan konsultasikan via WhatsApp.</div>
+        </details>
+        
+        <details>
+            <summary>Keamanan transaksi terjamin?</summary>
+            <div class="faq-body">Sangat terjamin. G-ASR berkomitmen menjaga privasi pelanggan dan keamanan transaksi jangka panjang.</div>
         </details>
     </div>
 
-    <!-- CTA -->
-    <div class="section" style="text-align:center;">
-        <h2 style="border:none; padding:0;">Siap Transaksi?</h2>
-        <p>Hubungi kami untuk jadwal pengecekan atau penjemputan.</p>
-        <a href="https://wa.me/6285892767032?text=Halo%20G-ASR,%20saya%20ingin%20jual%20emas.%20Mohon%20info%20lebih%20lanjut." target="_blank" class="btn-whatsapp">
-            Hubungi via WhatsApp
+    <!-- CALL TO ACTION -->
+    <div class="section" style="text-align: center; background-color: #f8fafc;">
+        <h2 style="justify-content: center; border:none; margin-bottom:10px;">Siap Melakukan Transaksi?</h2>
+        <p>Konsultasikan kebutuhan penjualan emas Anda sekarang. Respon cepat dan ramah.</p>
+        <a href="https://wa.me/6285892767032?text=Halo%20G-ASR,%20saya%20ingin%20konsultasi%20jual%20emas.%20Mohon%20info%20lebih%20lanjut." class="btn-wa">
+            HUBUNGI VIA WHATSAPP
         </a>
     </div>
 
+    <!-- FOOTER -->
     <footer>
-        <span style="display:block; font-weight:bold; color:var(--primary-gold); margin-bottom:5px;">G-ASR GOLD TRADING</span>
-        Disclaimer: Harga pasar berubah setiap saat. Kalkulator ini adalah alat bantu estimasi.
+        <span class="footer-logo-text">G-ASR GOLD TRADING</span>
+        <p style="margin-bottom:20px;">Mitra profesional jual beli logam mulia dengan standar integritas tinggi.</p>
+        <p style="font-size:0.7rem; border-top:1px solid #334155; padding-top:20px;">
+            &copy; 2024 G-ASR Management. Seluruh hak cipta dilindungi.<br>
+            Disclaimer: Harga pasar berfluktuasi secara dinamis.
+        </p>
     </footer>
 </div>
 
-<div id="toast" class="toast">Berhasil disalin!</div>
+<!-- TOAST NOTIFICATION -->
+<div id="toast">Teks berhasil disalin ke clipboard!</div>
 
 <script>
-    /* KONFIGURASI SISTEM */
+    /* --- KONFIGURASI SISTEM --- */
     const CONFIG = {
-        apiEndpoint: "https://api.gold-api.com/price/XAU", // API Publik
-        usdIdr: 16250, // Estimasi Kurs (Bisa disesuaikan)
-        updateHours: [6, 12, 17],
-        basePriceFallback: 1550000 // Fallback harga 24K jika offline
+        apiUrl: "https://api.gold-api.com/price/XAU", // Endpoint Publik Stabil
+        usdToIdr: 16250, // Estimasi Kurs Konservatif Aman
+        basePrice: 1550000 // Fallback Data (Jika Offline)
     };
 
-    let currentPrice24K = CONFIG.basePriceFallback;
-    let calculationMode = 'tanpa-kode'; // 'tanpa-kode' atau 'ada-kode'
+    let currentPrice = CONFIG.basePrice;
+    let mode = 'umum'; // State: umum | kode
 
-    /* --- 1. HARGA REALTIME --- */
-    async function fetchGoldPrice() {
+    /* --- FUNGSI UTAMA --- */
+
+    async function updatePrice() {
         const display = document.getElementById('price-display');
-        const timeEl = document.getElementById('last-update');
-
+        const info = document.getElementById('last-update');
+        
         try {
-            const response = await fetch(CONFIG.apiEndpoint);
-            if (!response.ok) throw new Error("API Error");
-            const data = await response.json();
+            const res = await fetch(CONFIG.apiUrl);
+            if(!res.ok) throw new Error("Gagal Fetch");
+            const data = await res.json();
             
-            // Konversi XAU/USD ke IDR/Gram
-            const priceXau = data.price; 
-            const priceGramIdr = (priceXau / 31.1035) * CONFIG.usdIdr;
-            
-            currentPrice24K = priceGramIdr;
+            // Konversi: (Harga Oz / 31.1035) * Kurs IDR
+            const priceGram = (data.price / 31.1035) * CONFIG.usdToIdr;
+            currentPrice = priceGram;
 
-            display.innerText = formatRupiah(currentPrice24K);
+            display.innerText = formatRp(currentPrice);
             
             const now = new Date();
-            timeEl.innerText = `Update: ${now.toLocaleTimeString('id-ID', {hour:'2-digit', minute:'2-digit'})} WIB`;
-            
-            // Simpan cache
-            localStorage.setItem('gasr_price', JSON.stringify({
-                price: currentPrice24K,
-                timestamp: now.getTime()
-            }));
+            info.innerText = `Terakhir Diperbarui: ${now.toLocaleTimeString('id-ID', {hour:'2-digit', minute:'2-digit'})} WIB`;
+            info.style.color = "#166534"; // Hijau Sukses
 
         } catch (e) {
-            console.log("Menggunakan data fallback/cache");
-            const cached = JSON.parse(localStorage.getItem('gasr_price'));
-            if(cached) {
-                currentPrice24K = cached.price;
-                display.innerText = formatRupiah(currentPrice24K);
-                const d = new Date(cached.timestamp);
-                timeEl.innerText = `Cache: ${d.toLocaleTimeString('id-ID')} WIB`;
-            } else {
-                display.innerText = formatRupiah(currentPrice24K);
-            }
+            console.warn("Offline Mode Active");
+            display.innerText = formatRp(currentPrice);
+            info.innerText = "Menggunakan data referensi terakhir";
         }
     }
 
-    /* --- 2. LOGIKA UI (SWITCH MODE) --- */
-    function switchMode(mode) {
-        calculationMode = mode;
-        const btnTanpa = document.getElementById('opt-tanpa-kode');
-        const btnAda = document.getElementById('opt-ada-kode');
-        const boxCategory = document.getElementById('input-category-box');
-        const boxCode = document.getElementById('input-code-box');
-
-        if (mode === 'tanpa-kode') {
-            btnTanpa.classList.add('active');
-            btnAda.classList.remove('active');
-            boxCategory.style.display = 'block';
-            boxCode.style.display = 'none';
-        } else {
-            btnTanpa.classList.remove('active');
-            btnAda.classList.add('active');
-            boxCategory.style.display = 'none';
-            boxCode.style.display = 'block';
-        }
+    function setMode(selectedMode) {
+        mode = selectedMode;
+        // Update UI Button
+        document.getElementById('btn-umum').className = mode === 'umum' ? 'mode-btn active' : 'mode-btn';
+        document.getElementById('btn-kode').className = mode === 'kode' ? 'mode-btn active' : 'mode-btn';
+        
+        // Show/Hide Inputs
+        document.getElementById('box-umum').style.display = mode === 'umum' ? 'block' : 'none';
+        document.getElementById('box-kode').style.display = mode === 'kode' ? 'block' : 'none';
+        
+        // Hide Result when switching
+        document.getElementById('box-hasil').style.display = 'none';
     }
 
-    /* --- 3. KALKULATOR (LOGIKA INTI) --- */
-    function calculateEstimate() {
-        const weight = parseFloat(document.getElementById('calc-weight').value);
-        const resultBox = document.getElementById('result-box');
-        const resultText = document.getElementById('result-price');
-
-        if (!weight || weight <= 0) {
-            alert("Masukkan berat emas yang valid");
+    function hitung() {
+        const berat = parseFloat(document.getElementById('inp-berat').value);
+        if(!berat || berat <= 0) {
+            alert("Mohon masukkan berat emas yang valid (contoh: 5.5)");
             return;
         }
 
-        // 1. Tentukan Harga Dasar Beli (Pasar 24K - 20% Potongan/Margin)
-        // Ini adalah base price G-ASR sebelum dikali karat
-        const buyingBase = currentPrice24K * 0.80;
+        // LOGIKA PENAWARAN
+        // Base Price = 80% dari Harga Murni (Standard Margin & Operational Cost)
+        const baseBuy = currentPrice * 0.80;
+        let faktor = 0;
 
-        let selectedKarat = 0;
-
-        // 2. Tentukan Karat Berdasarkan Mode
-        if (calculationMode === 'tanpa-kode') {
-            // Mengambil value dari dropdown kategori (sudah diset: 16, 12, 8, dll)
-            selectedKarat = parseFloat(document.getElementById('calc-category').value);
+        if (mode === 'umum') {
+            const tipe = document.getElementById('sel-umum').value;
+            // Faktor Kualitas (Tanpa menyebut karat spesifik di UI)
+            if (tipe === 'tua') faktor = 0.75;      // High Quality
+            if (tipe === 'sedang') faktor = 0.50;   // Medium Quality
+            if (tipe === 'muda') faktor = 0.375;    // Low Quality
+            if (tipe === 'campuran') faktor = 0.30; // Scrap Grade
         } else {
-            // Mengambil value dari dropdown kode (sudah diset: 24, 22, 18, 17, dll)
-            selectedKarat = parseFloat(document.getElementById('calc-code-val').value);
+            const karatKode = parseFloat(document.getElementById('sel-kode').value);
+            // Hitungan Presisi Kode: (Nilai Karat / 24)
+            faktor = karatKode / 24;
         }
 
-        // 3. Rumus Utama: Harga Dasar Beli x (Karat Pilihan / 24) x Berat
-        // Contoh: Emas Tua (16K) -> HargaBeli x (16/24) x Berat
-        const totalEstimate = buyingBase * (selectedKarat / 24) * weight;
-
-        resultText.innerText = formatRupiah(totalEstimate);
-        resultBox.style.display = 'block';
+        const total = baseBuy * faktor * berat;
+        
+        document.getElementById('txt-hasil').innerText = formatRp(total);
+        document.getElementById('box-hasil').style.display = 'block';
+        
+        // Scroll ke hasil
+        document.getElementById('box-hasil').scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
     /* --- UTILITIES --- */
-    function formatRupiah(num) {
+    function formatRp(num) {
+        // Pembulatan ke ribuan terdekat agar rapi
         return "Rp " + new Intl.NumberFormat('id-ID').format(Math.floor(num / 1000) * 1000);
     }
 
     function copyText(id) {
-        const txt = document.getElementById(id).innerText;
-        navigator.clipboard.writeText(txt).then(() => showToast());
+        const t = document.getElementById(id).innerText;
+        navigator.clipboard.writeText(t).then(showToast);
     }
 
     function copyList(id) {
-        const ul = document.getElementById(id);
         let txt = "";
-        ul.querySelectorAll('li').forEach(li => txt += "- " + li.innerText + "\n");
-        navigator.clipboard.writeText(txt).then(() => showToast());
+        document.querySelectorAll(`#${id} li`).forEach(li => {
+            // Membersihkan teks dari span untuk copy yang rapi
+            const rawText = li.innerText.replace(/\n/g, " "); 
+            txt += "• " + rawText + "\n";
+        });
+        navigator.clipboard.writeText(txt).then(showToast);
     }
 
     function showToast() {
         const t = document.getElementById('toast');
-        t.classList.add('show');
-        setTimeout(() => t.classList.remove('show'), 3000);
+        t.className = "show";
+        setTimeout(() => t.className = t.className.replace("show", ""), 3000);
     }
 
-    // Auto Run
-    window.onload = function() {
-        // Cek update berdasarkan jam (Simple Logic)
-        const now = new Date();
-        const h = now.getHours();
-        // Trigger fetch jika masuk jam kerja atau belum ada data
-        fetchGoldPrice();
-    };
+    // Auto Run on Load
+    window.onload = updatePrice;
+
 </script>
 
 </body>
